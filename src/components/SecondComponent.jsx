@@ -9,26 +9,27 @@ export const SecondComponent = () => {
     "Harry Potter y las reliquias de la muerte",
     "Otro libro",
     ];
-    const liBooks= []
-    books.forEach((book, index) => {
-    liBooks.push(<li key={index}>{book}</li> )
-    })
+
+    //condición ? (si_verdaddero):(si_falso)
 
     return (
     <>
     <h1>Component Libros de Harry Potter</h1>
     <div>
         <ul>
-            {books.map((book, index) => {
-            return <li key={index}>{book}</li>;
-            })}
-        </ul>
-        <ul>
-            {
-            liBooks
+            {books.length >=1 ?
+                (
+                    books.map((book, index) => {
+                        return <li key={index}>{book}</li>;
+                    })
+                )
+                    :
+                (
+                        <p>No hay libros disponibles</p>
+                )
             }
         </ul>
     </div>
     </>
-    );
-};
+    )
+}
